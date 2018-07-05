@@ -9,17 +9,30 @@ class App extends Component {
   state = {
     audioContext: {},
     analyzer: {},
-    simplex: new SimplexNoise('I love keyboard cats'),
+    simplex: new SimplexNoise(),
+    seriesWidth: 300,
+    timeCounter: 0,
     series: Array(300).fill(0),
   }
 
   componentDidMount() {
-    setInterval(this.updateSeries, 500);
+    this.updateSeries();
+
+    setInterval(this.updateSeries, 100);
   }
 
   updateSeries = () => {
+    const { timeCounter, seriesWidth, simplex } = this.state;
+
+    let series = [];
+
+    for (let i = 0; i < seriesWidth; ++i) {
+      series.push(((simplex.noise2D((i + timeCounter) / 20, 0))) / 2 + 0.5);
+    }
+
     this.setState({
-      series: Array(400).fill(0).map(_ => Math.random()),
+      series: series,
+      timeCounter: this.state.timeCounter + 1,
     });
   }
 
