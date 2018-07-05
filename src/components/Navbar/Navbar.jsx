@@ -7,6 +7,7 @@ class Navbar extends Component {
     return (
       <div className='Navbar'>
         <img className='Navbar-logo' src={Logo}/>
+
         <h1>Fermi Dirak</h1>
       </div>
     );
