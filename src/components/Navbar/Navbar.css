@@ -4,25 +4,22 @@
   align-items: center;
 
   width: 100vw;
-  height: 72px;
   padding: 4px;
-  background: rgb(28,28,24);
+  /* background: rgb(28,28,24); */
 }
 
 .Navbar h1 {
-  font-family: 'Qwigley', cursive;
-  font-size: 3.5em;
-  font-weight: 100;
+  font-family: 'Fira Mono', monospace;
+  font-size: 1em;
+  font-weight: lighter;
   color: rgb(160, 167, 167);
   padding: 0 8px;
-  margin-top: auto;
 }
 
 .Navbar-logo {
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
   padding: 6px;
-  margin-left: 8px;
+  margin-left: 4px;
   background: radial-gradient(rgb(175, 187, 187), rgb(160, 167, 167));
-  border-radius: 50%;
 }

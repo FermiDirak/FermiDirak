@@ -2,10 +2,11 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100vh;
   width: 100vw;
   overflow-y: hidden;
   overflow-x: hidden;
 
-  background: rgb(41, 41, 35);
+  background: rgb(61, 59, 59);
 }

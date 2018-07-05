@@ -4,9 +4,9 @@ import './Display.css';
 class Display extends Component {
 
   state = {
-    width: 150,
-    height: 25,
-    series: Array(150).fill(0).map(_ => Math.random()),
+    width: 180,
+    height: 40,
+    series: Array(180).fill(0).map(_ => Math.random()),
   }
 
   renderGraphString = () => {
