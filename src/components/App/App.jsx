@@ -10,18 +10,26 @@ class App extends Component {
     audioContext: {},
     analyzer: {},
     simplex: new SimplexNoise('I love keyboard cats'),
-    series: Array(400).fill(0),
+    series: Array(300).fill(0),
   }
 
   componentDidMount() {
+    setInterval(this.updateSeries, 500);
+  }
 
+  updateSeries = () => {
+    this.setState({
+      series: Array(400).fill(0).map(_ => Math.random()),
+    });
   }
 
   render() {
+    const { series } = this.state;
+
     return (
       <div className="App">
         <Navbar />
-        <Display width={200} height={50} series={Array(400).fill(0.5)}/>
+        <Display width={150} height={50} series={series}/>
       </div>
     );
   }
