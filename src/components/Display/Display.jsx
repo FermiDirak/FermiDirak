@@ -14,34 +14,45 @@ class Display extends Component {
    * @param {number} rightHeight The right hight of the braille character
    * @return {string} the braille character for the respective heights */
   getBrailleCharacter = (leftHeight, rightHeight) => {
-    leftHeight = 3 - leftHeight;
-    rightHeight = 3 - rightHeight;
+    leftHeight = 4 - leftHeight;
+    rightHeight = 4 - rightHeight;
 
     const brailleMap = {
       0: {
-        0: '⠀',
+        0: '⡀',
         1: '⢀',
         2: '⢠',
         3: '⢰',
+        4: '⢸',
       },
       1: {
         0: '⡀',
         1: '⣀',
         2: '⣠',
         3: '⣰',
+        4: '⣸',
       },
       2: {
         0: '⡄',
         1: '⣄',
         2: '⣤',
         3: '⣴',
+        4: '⣼',
       },
       3: {
         0: '⡆',
         1: '⣆',
         2: '⣦',
         3: '⣶',
+        4: '⣾',
       },
+      4: {
+        0: '⡇',
+        1: '⣇',
+        2: '⣧',
+        3: '⣷',
+        4: '⣿',
+      }
     };
 
     return brailleMap[leftHeight][rightHeight];
@@ -59,22 +70,26 @@ class Display extends Component {
 
         if (j > height * series[2*i]) {
           leftHeight = 0;
-        } if (j > height * series[2*i] + (1/3)) {
+        } if (j > height * series[2*i] + (1/4)) {
           leftHeight = 1;
-        } if (j > height * series[2*i] + (2/3)) {
+        } if (j > height * series[2*i] + (2/4)) {
           leftHeight = 2;
-        } if (j > height * series[2*i] + 1) {
+        } if (j > height * series[2*i] + (3/4)) {
           leftHeight = 3;
+        } if (j > height * series[2*i] + 1) {
+          leftHeight = 4;
         }
 
         if (j > height * series[2*i + 1]) {
           rightHeight = 0;
-        } if (j > height * series[2*i + 1] + (1/3)) {
+        } if (j > height * series[2*i + 1] + (1/4)) {
           rightHeight = 1;
-        } if (j > height * series[2*i + 1] + (2/3)) {
+        } if (j > height * series[2*i + 1] + (2/4)) {
           rightHeight = 2;
-        } if (j > height * series[2*i + 1] + 1) {
+        } if (j > height * series[2*i + 1] + (3/4)) {
           rightHeight = 3;
+        } if (j > height * series[2*i + 1] + 1) {
+          rightHeight = 4;
         }
 
         display[i] += this.getBrailleCharacter(leftHeight, rightHeight);

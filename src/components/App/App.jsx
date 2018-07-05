@@ -18,7 +18,7 @@ class App extends Component {
   componentDidMount() {
     this.updateSeries();
 
-    setInterval(this.updateSeries, 30);
+    setInterval(this.updateSeries, 20);
   }
 
   updateSeries = () => {
@@ -27,7 +27,7 @@ class App extends Component {
     let series = [];
 
     for (let i = 0; i < seriesWidth; ++i) {
-      series.push(((simplex.noise2D(i / 20, timeCounter / 250))) / 2 + 0.5);
+      series.push((simplex.noise2D(i / 20, timeCounter / 50)) / 2 + 0.5);
     }
 
     this.setState({
