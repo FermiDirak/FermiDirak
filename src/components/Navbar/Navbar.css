@@ -13,15 +13,16 @@
   font-family: 'Qwigley', cursive;
   font-size: 3.5em;
   font-weight: 100;
-  color: palegoldenrod;
+  color: rgb(160, 167, 167);
   padding: 0 8px;
+  margin-top: auto;
 }
 
 .Navbar-logo {
-  width: 48px;
-  height: 48px;
-  padding: 8px;
+  width: 40px;
+  height: 40px;
+  padding: 6px;
   margin-left: 8px;
-  background: linear-gradient(white, palegoldenrod);
+  background: radial-gradient(rgb(175, 187, 187), rgb(160, 167, 167));
   border-radius: 50%;
 }
