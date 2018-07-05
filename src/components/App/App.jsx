@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SimplexNoise from 'simplex-noise';
 import './App.css';
 
 import Navbar from './../Navbar/Navbar.jsx';
@@ -8,36 +9,12 @@ class App extends Component {
   state = {
     audioContext: {},
     analyzer: {},
+    simplex: new SimplexNoise('I love keyboard cats'),
+    series: Array(400).fill(0),
   }
 
   componentDidMount() {
-    this.audioContext = new AudioContext();
-    this.analyzer = this.audioContext.createAnalyser();
 
-    navigator.getUserMedia(
-      // constraints
-      { audio: true },
-
-      //success callback
-      (stream) => {
-        let source = this.audioContext.createMediaStreamSource(stream);
-        source.connect(this.analyzer);
-        this.analyzer.connect(this.audioContext.destination);
-
-        this.visualize(stream);
-      },
-
-      //error callback
-      (error) => {
-        console.error(error);
-      },
-    );
-  }
-
-  visualize = (stream) => {
-    console.log(stream);
-
-    console.log(stream);
   }
 
   render() {
